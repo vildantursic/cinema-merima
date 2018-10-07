@@ -10,7 +10,7 @@
         },
         data() {
             return {
-                api: 'https://cinema-merima-api.herokuapp.com/api/v1/',
+                api: 'http://45.76.90.178:2222/api/v1/',
             }
         },
         computed: {
@@ -31,16 +31,16 @@
                 }
             },
             get(route) {
-                return axios.get(`https://cinema-merima-api.herokuapp.com/api/v1/${route}`, this.headers())
+                return axios.get(`http://45.76.90.178:2222/api/v1/${route}`, this.headers())
             },
             post(route, data) {
-                return axios.post(`https://cinema-merima-api.herokuapp.com/api/v1/${route}`, data, this.headers())
+                return axios.post(`http://45.76.90.178:2222/api/v1/${route}`, data, this.headers())
             },
             put(route, data) {
-                return axios.put(`https://cinema-merima-api.herokuapp.com/api/v1/${route}`, data, this.headers())
+                return axios.put(`http://45.76.90.178:2222/api/v1/${route}`, data, this.headers())
             },
             delete(route) {
-                return axios.delete(`https://cinema-merima-api.herokuapp.com/api/v1/${route}`, this.headers())
+                return axios.delete(`http://45.76.90.178:2222/api/v1/${route}`, this.headers())
             }
         }
     }
