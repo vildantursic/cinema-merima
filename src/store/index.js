@@ -7,49 +7,29 @@ import createPersistedState from "vuex-persistedstate";
 export const store = new Vuex.Store({
     state: {
         user: {},
-        hotels: [],
-        hotel: {}
+        movies: [],
+        movie: {},
+        bill: []
     },
     mutations: {
         setUser(state, payload) {
             state.user = payload
         },
-        setHotels(state, payload) {
-            state.hotels = payload.map(hotel => {
-                hotel['reviews'] = []
-                return hotel
+        setMovies(state, payload) {
+            state.movies = payload.map(movie => {
+                return movie
             })
         },
-        setFavouriteHotels(state, payload) {
-            state.hotels = payload.map(hotel => {
-                hotel['reviews'] = []
-                return hotel
-            }).filter(hotel => {
-                if (hotel.user) {
-                    return hotel.user.includes(state.user.user_id) ? hotel : null
-                } else {
-                    return null
-                }
-            })
+        setMovie(state, payload) {
+            state.movie = payload
         },
-        setHotel(state, payload) {
-            payload['reviews'] = []
-            state.hotel = payload
-        },
-        setReviews(state, payload) {
-            state.hotels = state.hotels.map(hotel => {
-                if (payload.id === hotel.id) {
-                    hotel['reviews'] = payload.reviews
-                } else {
-                    hotel['reviews'] = []
-                }
-                return hotel
-            })
+        setBill(state, payload) {
+            state.bill = payload
         },
         clearUser(state) {
             state.user = {},
-            state.hotel = {},
-            state.hotels = []
+            state.movie = {},
+            state.movies = []
         }
     },
     getters: {

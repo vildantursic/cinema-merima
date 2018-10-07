@@ -24,7 +24,7 @@ export default {
   data() {
       return {
           login: {
-              username: '',
+              email: '',
               password: ''
           }
       }
@@ -32,7 +32,7 @@ export default {
   methods: {
     onLogin() {
         return Service.methods
-                    .post('api-token-auth', this.login)
+                    .post('login', this.login)
                     .then((response) => {
                         this.$store.commit('setUser', response.data)
                         if (response.data) {

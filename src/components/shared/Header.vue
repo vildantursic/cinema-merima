@@ -1,15 +1,14 @@
 <template>
-    <header>
+    <header ref="header">
         <nav>
             <div>
-                <router-link v-show="isLoggedIn" to="/">Dashboard</router-link>
-                <router-link v-show="isLoggedIn" to="/favourites">Favourites</router-link>
+                <router-link v-show="isLoggedIn" to="/">Home</router-link>
+                <router-link v-show="isLoggedIn" to="/movies">Movie</router-link>
+                <router-link v-show="isLoggedIn" to="/food">Food</router-link>
             </div>
 
             <div>
                 <router-link v-show="!isLoggedIn" to="/login">Login</router-link>
-                <router-link v-show="!isLoggedIn" to="/register">Register</router-link>
-                <router-link v-show="isLoggedIn" to="/create">{{$store.state.user.email}}</router-link>
                 <a v-show="isLoggedIn" @click="onLogout">Logout</a>
             </div>
         </nav>
@@ -25,7 +24,7 @@
         },
         computed: {
             isLoggedIn() {
-                return this.$store.state.user.token
+                return this.$store.state.user === 'token'
             }
         },
         watch: {

@@ -10,7 +10,7 @@
         },
         data() {
             return {
-                api: 'http://localhost:8000',
+                api: 'http://localhost:3000',
             }
         },
         computed: {
@@ -31,16 +31,16 @@
                 }
             },
             get(route) {
-                return axios.get(`http://localhost:8000/${route}`, this.headers())
+                return axios.get(`http://localhost:3000/api/v1/${route}`, this.headers())
             },
             post(route, data) {
-                return axios.post(`http://localhost:8000/${route}`, data, this.headers())
+                return axios.post(`http://localhost:3000/api/v1/${route}`, data, this.headers())
             },
             put(route, data) {
-                return axios.put(`http://localhost:8000/${route}`, data, this.headers())
+                return axios.put(`http://localhost:3000/api/v1/${route}`, data, this.headers())
             },
             delete(route) {
-                return axios.delete(`http://localhost:8000/${route}`, this.headers())
+                return axios.delete(`http://localhost:3000/api/v1/${route}`, this.headers())
             }
         }
     }
